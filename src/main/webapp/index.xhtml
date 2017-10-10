@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html  xmlns="http://www.w3c.org/1999/xhtml"
+	   xmlns:f="http://java.sun.com/jsf/core"
+	   xmlns:h="http://java.sun.com/jsf/html"
+	   xmlns:ui="http://java.sun.com/jsf/facelets"
+	   xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+
+
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>#{menuController.title}</title>
+		<style>body {font-size:12px; }</style>
+	</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable id="models"
+					 var="model"
+					 value="#{simpleView.users}"
+					 widgetVar="modelTable"
+					 filteredValue="#{simpleView.filteredUsers}"
+					 paginator="true"
+					 rows="15"
+					 emptyMessage="No data"
+					 resizableColumns="true">
+			<f:facet name="header">
+				<br>Table header</br>
+				<br></br>
+				<p:commandButton id="toggler"
+								 type="button"
+								 value="Colums"
+								 style="float:right"
+								 icon="ui-icon-calculator" />
+				<p:columnToggler datasource="models" trigger="toggler" />
+
+				<p:outputPanel>
+					<h:outputText value="Serach in all table: "/>
+					<p:inputText id="globalFilter"
+								 onkeyup="PF('modelTable').filter()" style="width:250px"
+								 placeholder="Write something" />
+				</p:outputPanel>
+			</f:facet>
+			<p:column filterBy="#{model.id}"
+					  sortBy="#{model.id}"
+					  headerText="User_id">
+				<h:outputText value="#{model.id}" />
+			</p:column>
+			<p:column filterBy="#{model.name}"
+					  sortBy="#{model.name}"
+					  headerText="Name">
+				<h:outputText value="#{model.name}" />
+			</p:column>
+			<p:column filterBy="#{model.email}"
+					  sortBy="#{model.email}"
+					  headerText="EMail">
+				<h:outputText value="#{model.email}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
