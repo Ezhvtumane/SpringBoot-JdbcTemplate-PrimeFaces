@@ -1,8 +1,6 @@
 package ogs.jpa;
 
-import ogs.jdbc.User;
 import org.hibernate.envers.Audited;
-import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

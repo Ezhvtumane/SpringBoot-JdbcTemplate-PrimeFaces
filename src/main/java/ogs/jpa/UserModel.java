@@ -3,7 +3,6 @@ package ogs.jpa;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +12,8 @@ import java.util.List;
 public class UserModel {
 
     @Id
-   /* @GeneratedValue(strategy = GenerationType.TABLE)*/
     @SequenceGenerator(name = "users_seq_gen", sequenceName = "hibernate_sequence")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "users_seq_gen")
-   // @NotNull
     @Column(name="id")
     long id;
 
