@@ -1,4 +1,4 @@
-package sprBoot;
+package ogs;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;

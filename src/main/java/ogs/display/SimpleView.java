@@ -1,5 +1,7 @@
-package sprBoot;
+package ogs.display;
 
+import ogs.jdbc.User;
+import ogs.jdbc.JdbcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

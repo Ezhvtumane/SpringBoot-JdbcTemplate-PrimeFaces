@@ -1,4 +1,4 @@
-package sprBoot;
+package ogs.jdbc;
 
 import org.springframework.stereotype.Component;
 
