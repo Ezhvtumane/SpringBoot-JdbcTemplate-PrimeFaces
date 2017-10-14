@@ -18,12 +18,17 @@ public class UserSimpleView implements Serializable{
 
     private List<UserModel> filteredUserModels;
 
+    UserModel userModel = new UserModel("gosha","gogaopel");
+
     @Autowired
     private UserService userService;
 
     @PostConstruct
     public void initUsers(){
         userModels = userService.findAll();
+        System.out.println(userModel);
+        userService.addUserModel(userModel);
+
     }
 
     public List<UserModel> getUsers() {

@@ -102,6 +102,11 @@
 					  headerText="EMail">
 				<h:outputText value="#{model.email}" />
 			</p:column>
+			<p:column filterBy="#{model.groupModels}"
+					  sortBy="#{model.groupModels}"
+					  headerText="User groups">
+				<h:outputText value="#{model.groupModels}" />
+			</p:column>
 		</p:dataTable>
 	</h:form>
 </h:body>

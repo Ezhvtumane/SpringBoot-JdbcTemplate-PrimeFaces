@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService { //maybe create an interface and make its implementation?
 
     @Autowired
     UserRepository userRepository;
@@ -14,4 +14,12 @@ public class UserService {
     public List<UserModel> findAll(){
      return   userRepository.findAll();
     }
+
+    public UserModel addUserModel(UserModel userModel) {
+        UserModel savedUserModel = userRepository.saveAndFlush(userModel);
+
+        return savedUserModel;
+    }
+
+
 }
