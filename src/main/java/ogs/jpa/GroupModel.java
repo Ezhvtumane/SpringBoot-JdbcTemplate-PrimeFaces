@@ -1,5 +1,6 @@
 package ogs.jpa;
 
+import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Audited
+@AuditTable(value = "groups_aud_perf", schema = "pref") //, catalog = "pref"
 @Entity
 @Table(name="groups")
 public class GroupModel {
