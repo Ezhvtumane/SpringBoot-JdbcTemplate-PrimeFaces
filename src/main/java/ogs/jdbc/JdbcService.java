@@ -19,7 +19,7 @@ public class JdbcService {
 
     public List<User> getUsers(){
         return jdbcTemplate.query(
-                " select id, name, email from ogst "
+                " select id, name, email from users "
                        ,
                 new RowMapper<User>() {
                     @Override

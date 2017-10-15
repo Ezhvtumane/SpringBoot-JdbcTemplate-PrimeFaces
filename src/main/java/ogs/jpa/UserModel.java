@@ -14,7 +14,7 @@ import java.util.List;
 public class UserModel {
 
     @Id
-    @SequenceGenerator(name = "users_seq_gen", sequenceName = "hibernate_sequence")
+    @SequenceGenerator(name = "users_seq_gen", sequenceName = "users_id_seq")//hibernate_sequence
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "users_seq_gen")
     @Column(name="id")
     long id;
