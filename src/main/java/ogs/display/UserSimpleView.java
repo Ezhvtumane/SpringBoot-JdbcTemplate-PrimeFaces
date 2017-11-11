@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @Scope("session")
@@ -19,8 +20,6 @@ public class UserSimpleView implements Serializable{
     private List<UserModel> userModels;
 
     private List<UserModel> filteredUserModels;
-
-    UserModel userModel = new UserModel("gosha","gogaopel");
 
     @Autowired
     private UserService userService;
@@ -31,9 +30,8 @@ public class UserSimpleView implements Serializable{
 
     @PostConstruct
     public void initUsers(){
+
         userModels = userService.findAll();
-        System.out.println(userModel);
-        userService.addUserModel(userModel);
 
         System.out.println("Start mail sending.");
         String from = "freewally@mail.ru";
@@ -46,8 +44,19 @@ public class UserSimpleView implements Serializable{
     }
 
     public List<UserModel> getUsers() {
-        for(UserModel userModel : userModels) {
-            System.out.println(userModel);
+
+        int max = 10000, min = 1;
+        double num = Math.round(Math.random()*(max-min));
+
+        UserModel userModel =
+                new UserModel("gosha" + num
+                        ,"gogaopel" + num);
+        System.out.println(userModel);
+        userService.addUserModel(userModel);
+
+
+        for(UserModel userModel_ : userModels) {
+            System.out.println(userModel_);
         }
         return userModels;
     }
